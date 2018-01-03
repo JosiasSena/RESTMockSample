@@ -2,6 +2,7 @@ package com.josiassena.restmocksample
 
 import com.google.gson.Gson
 import com.josiassena.restmocksample.api.GitHubApi
+import com.josiassena.restmocksample.constants.MockResponses
 import com.josiassena.restmocksample.data.Profile
 import com.josiassena.restmocksample.rules.MockWebServerRule
 import com.josiassena.restmocksample.rules.RxRule
@@ -79,8 +80,8 @@ class ProfileInformationProviderTest {
     @Test
     fun testGetProfileInformationTimeOut() {
         val mockResponse = MockResponse()
-                .setBody(MockResponses.USER_PROFILE_MOCK_RESPONSE)
-                .setResponseCode(200)
+                .setBody(MockResponses.USER_PROFILE_MOCK_RESPONSE) // The response body
+                .setResponseCode(200) // the response code to return
 
         RESTMockServer.whenGET(tokenMatcher).thenReturn(mockResponse)
 

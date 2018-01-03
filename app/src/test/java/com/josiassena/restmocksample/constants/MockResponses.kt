@@ -1,4 +1,4 @@
-package com.josiassena.restmocksample
+package com.josiassena.restmocksample.constants
 
 /**
  * @author Josias Sena
