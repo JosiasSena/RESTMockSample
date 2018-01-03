@@ -36,3 +36,4 @@ app/libs/
 app/src/androidTest/
 libs/
 src/androidTest/
+.idea
