@@ -8,6 +8,7 @@ import com.josiassena.restmocksample.data.Profile
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import org.jetbrains.anko.AnkoLogger
+import org.jetbrains.anko.error
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
@@ -48,9 +49,11 @@ class MainActivity : AppCompatActivity(), AnkoLogger {
 
         profileInformationProvider.getProfileInformationForUsername(userName)
                 .subscribe({ profile: Profile? ->
-                    // Do something with the profile information
+                    // Once the profile information is returned display it
+                    tvProfileInformationDisplay.text = gson.toJson(profile)
                 }, { throwable: Throwable? ->
-                    // Do something on error
+                    // Log any errors thrown
+                    error(throwable?.message, throwable)
                 })
     }
 }
